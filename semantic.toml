@@ -1,0 +1,62 @@
+# semantic.toml - what this nest's data *means* (RFC-0016). Read by the MCP `schema`
+# tool, the admin UI, and the scaffolded skill. Edit descriptions freely; the
+# `[table.*.footguns]` are DERIVED from the ABI and regenerated - leave them be.
+
+schema_version = 1
+
+[nest]
+description = "The `seaport` nest on mainnet. (seeded from the ABI - edit semantic.toml to improve this)"
+
+[table.c0__counter_incremented]
+description = "`CounterIncremented(uint256,address)` events emitted by the `c0` contract. (seeded from the ABI - edit semantic.toml to improve this)"
+grain = "one row per CounterIncremented(uint256,address) event"
+
+[table.c0__counter_incremented.columns]
+newCounter = "The `newCounter` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+offerer = "The `offerer` address parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+
+[table.c0__counter_incremented.footguns]
+big_ints = ["newCounter"]
+overflows_dec = ["newCounter"]
+
+[table.c0__order_cancelled]
+description = "`OrderCancelled(bytes32,address,address)` events emitted by the `c0` contract. (seeded from the ABI - edit semantic.toml to improve this)"
+grain = "one row per OrderCancelled(bytes32,address,address) event"
+
+[table.c0__order_cancelled.columns]
+offerer = "The `offerer` address parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+orderHash = "The `orderHash` bytes32 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+zone = "The `zone` address parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+
+[table.c0__order_fulfilled]
+description = "`OrderFulfilled(bytes32,address,address,address,(uint8,address,uint256,uint256)[],(uint8,address,uint256,uint256,address)[])` events emitted by the `c0` contract. (seeded from the ABI - edit semantic.toml to improve this)"
+grain = "one row per OrderFulfilled(bytes32,address,address,address,(uint8,address,uint256,uint256)[],(uint8,address,uint256,uint256,address)[]) event"
+
+[table.c0__order_fulfilled.columns]
+consideration = "The `consideration` tuple[] parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+offer = "The `offer` tuple[] parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+offerer = "The `offerer` address parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+orderHash = "The `orderHash` bytes32 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+recipient = "The `recipient` address parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+zone = "The `zone` address parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+
+[table.c0__order_validated]
+description = "`OrderValidated(bytes32,(address,address,(uint8,address,uint256,uint256,uint256)[],(uint8,address,uint256,uint256,uint256,address)[],uint8,uint256,uint256,bytes32,uint256,bytes32,uint256))` events emitted by the `c0` contract. (seeded from the ABI - edit semantic.toml to improve this)"
+grain = "one row per OrderValidated(bytes32,(address,address,(uint8,address,uint256,uint256,uint256)[],(uint8,address,uint256,uint256,uint256,address)[],uint8,uint256,uint256,bytes32,uint256,bytes32,uint256)) event"
+
+[table.c0__order_validated.columns]
+orderHash = "The `orderHash` bytes32 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+orderParameters = "The `orderParameters` tuple parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+
+[table.c0__orders_matched]
+description = "`OrdersMatched(bytes32[])` events emitted by the `c0` contract. (seeded from the ABI - edit semantic.toml to improve this)"
+grain = "one row per OrdersMatched(bytes32[]) event"
+
+[table.c0__orders_matched.columns]
+orderHashes = "The `orderHashes` bytes32[] parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+
+[view]
+
+# Authored views (views/*.sql) are described here so the MCP/`/schema` can render them:
+# [view.your_view_name]
+# description = "What this derivation computes."
