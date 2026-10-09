@@ -1,6 +1,6 @@
 # seaport
 
-A [nuthatch](https://github.com/nightswatchhq/nuthatch) nest: **Seaport 1.6 on Ethereum**.
+A [nuthatch](https://github.com/nuthatch-org/nuthatch) nest: **Seaport 1.6 on Ethereum**.
 
 OpenSea's settlement layer: order fulfilment, cancellation and counter changes.
 
@@ -21,7 +21,7 @@ Indexed blocks **25,791,621 to 25,811,557** and sealed **42,123 events**. Every 
 ## Run it
 
 ```sh
-nuthatch init --from https://github.com/nightswatchhq/seaport
+nuthatch init --from https://github.com/nuthatch-org/seaport
 cd seaport
 nuthatch dev --dir . --backfill 50000 --seal-direct
 nuthatch sql --dir . "SELECT count(*) FROM \"c0__counter_incremented\""
